@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>رزومه فنی - محمدحسین فیض‌بخشیان</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .resume-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+        
+        .header h1 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .header .title {
+            font-size: 1.2em;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .contact-section {
+            background: #34495e;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            color: white;
+        }
+        
+        .contact-item i {
+            font-size: 1.5em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        
+        .social-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9em;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .main-content {
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .section:nth-child(1) { animation-delay: 0.1s; }
+        .section:nth-child(2) { animation-delay: 0.2s; }
+        .section:nth-child(3) { animation-delay: 0.3s; }
+        .section:nth-child(4) { animation-delay: 0.4s; }
+        .section:nth-child(5) { animation-delay: 0.5s; }
+        
+        .section h2 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-bottom: 25px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .section h2:hover::before {
+            left: 100%;
+        }
+        
+        .profile-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .profile-card {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .profile-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .skill-category h3 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .skill-bar {
+            flex: 1;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            margin: 0 15px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 1.5s ease-in-out;
+            position: relative;
+        }
+        
+        .skill-progress::after {
+            content: attr(data-percent);
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.8em;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .experience-item {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .experience-item:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .job-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .company-period {
+            color: #6c757d;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .job-description {
+            color: #495057;
+            line-height: 1.7;
+        }
+        
+        .education-item, .teaching-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-right: 4px solid #28a745;
+        }
+        
+        .education-icon, .teaching-icon {
+            font-size: 1.5em;
+            margin-left: 15px;
+            color: #28a745;
+        }
+        
+        .interests {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .interest-item {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: transform 0.3s ease;
+        }
+        
+        .interest-item:hover {
+            transform: scale(1.05);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="resume-container">
+        <div class="header">
+            <img src="۲۰۲۳۰۲۰۵_۲۲۲۰۰۷.jpg" alt="محمدحسین فیض‌بخشیان" class="profile-image">
+            <h1>محمدحسین فیض‌بخشیان</h1>
+            <p class="title">توسعه‌دهنده نرم‌افزار</p>
+        </div>
+        
+        <div class="contact-section">
+            <div class="contact-item">
+                <i>📧</i>
+                <div>h.feizbakhshian@gmail.com</div>
+            </div>
+            <div class="contact-item">
+                <i>☎️</i>
+                <div>(+۹۸)۹۳۹۱۱۰۵۸۱۰</div>
+            </div>
+            <div class="contact-item">
+                <i>📍</i>
+                <div>تهران، خیابان دامپزشکی</div>
+            </div>
+            <div class="contact-item">
+                <i>🔗</i>
+                <div>شبکه‌های اجتماعی</div>
+                <div class="social-links">
+                    <a href="https://github.com/hfeizbakhshian" class="social-link" target="_blank">
+                        <strong>GitHub</strong> <br> hfeizbakhshian
+                    </a>
+                    <a href="https://linkedin.com/in/mhfeizbakhshian" class="social-link" target="_blank">
+                        <strong>LinkedIn</strong> <br> mhfeizbakhshian
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <div class="section">
+                <h2>مشخصات کلی</h2>
+                <div class="profile-info">
+                    <div class="profile-card">
+                        <h3>🎓 تحصیلات</h3>
+                        <p>کارشناسی ریاضی کاربردی – دانشگاه صنعتی شریف</p>
+                        <p><strong>معدل: ۱۶.۱۲</strong></p>
+                        <p>۱۳۹۹ - اکنون</p>
+                    </div>
+                    <div class="profile-card">
+                        <h3>📚 دیپلم</h3>
+                        <p>ریاضی فیزیک - مدرسه شهید اژه‌ای ۲ (سمپاد)</p>
+                        <p><strong>معدل: ۱۸.۲۳</strong></p>
+                        <p>۱۳۹۵ - ۱۳۹۸</p>
+                    </div>
+                    <div class="profile-card">
+                        <h3>📅 اطلاعات شخصی</h3>
+                        <p>متولد: ۱۳۸۰/۰۳/۲۲ - اصفهان</p>
+                        <p>وضعیت تأهل: متأهل</p>
+                        <p>وضعیت سربازی: معافیت تحصیلی</p>
+                    </div>
+                    <div class="profile-card">
+                        <h3>🔗 علایق</h3>
+                        <p>مهندسی نرم‌افزار، بلاکچین، امنیت شبکه</p>
+                        <p>داده‌کاوی، سیستم‌های توزیع‌شده</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>مهارت‌های فنی</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>زبان‌های برنامه‌نویسی</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Python (API، تحلیل داده، اتوماسیون)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C/C++ (پروژه‌های ساختاریافته)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Java (آشنایی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Rust (سیستم‌های پرکارایی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Go (سیستم‌های توزیع‌شده)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>مهندسی داده و پایگاه داده</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">PostgreSQL (بهینه‌سازی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Apache Airflow (ETL)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Redis (کش و هماهنگی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MongoDB</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>DevOps و زیرساخت</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker (پیشرفته)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Linux (Debian/Ubuntu)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git/GitHub (توسعه تیمی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">KVM (مجازی‌سازی)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <h3>شبکه و امنیت</h3>
+                        <div class="skill-item">
+                            <span class="skill-name">تحلیل ترافیک شبکه</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">مفاهیم شبکه</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="80%" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">OWASP Top 10</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-percent="60%" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background: #e3f2fd; border-radius: 8px; font-size: 0.95em; color: #1976d2;">
+                    <strong>زبان انگلیسی:</strong> خواندن ۸۰% | نوشتن ۸۰% | گفتاری ۸۰% | شنیداری ۸۰%
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>سوابق کاری</h2>
+                <div class="experience-item">
+                    <div class="job-title">کارشناس تحقیق و توسعه نرم‌افزار</div>
+                    <div class="company-period">
+                        <span>شرکت آرمان موج فناور</span>
+                        <span>دی ۱۴۰۳ - اکنون</span>
+                    </div>
+                    <div class="job-description">
+                        • توسعه نرم‌افزار با Qt و کتابخانه‌های نرم‌افزاری برای سخت‌افزار<br>
+                        • طراحی و پیاده‌سازی API با FastAPI<br>
+                        • همکاری در پروژه‌های تحقیق و توسعه فناوری
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">تحلیلگر ترافیک شبکه (Remote)</div>
+                    <div class="company-period">
+                        <span>شرکت نهانت</span>
+                        <span>مرداد ۱۴۰۳ - آذر ۱۴۰۳</span>
+                    </div>
+                    <div class="job-description">
+                        • تحلیل داده‌های شبکه و توسعه ابزارهای مرتبط<br>
+                        • شناسایی الگوها و بهینه‌سازی سیستم‌های تشخیص ترافیک<br>
+                        • همکاری در پروژه‌های تحقیقاتی امنیت شبکه
+                    </div>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="job-title">تحلیلگر ترافیک شبکه با هوش مصنوعی</div>
+                    <div class="company-period">
+                        <span>شرکت دماوند</span>
+                        <span>دی ۱۴۰۱ - اردیبهشت ۱۴۰۳</span>
+                    </div>
+                    <div class="job-description">
+                        • طراحی و پیاده‌سازی الگوریتم‌های هوش مصنوعی<br>
+                        • تحلیل ترافیک شبکه و توسعه ابزارهای تشخیص<br>
+                        • بهینه‌سازی عملکرد سیستم‌های امنیتی
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>سوابق آموزشی و افتخارات</h2>
+                <div class="education-item">
+                    <div class="teaching-icon">👨‍🏫</div>
+                    <div>
+                        <strong>سردستیار درس شبکه‌های کامپیوتری</strong><br>
+                        <small>دانشگاه صنعتی شریف - بهمن ۱۴۰۱</small>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="teaching-icon">👨‍🏫</div>
+                    <div>
+                        <strong>دستیار درس برنامه‌نویسی پیشرفته</strong><br>
+                        <small>دانشگاه صنعتی شریف - بهمن ۱۴۰۲</small>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="teaching-icon">👨‍🏫</div>
+                    <div>
+                        <strong>دستیار درس اصول سیستم‌های کامپیوتری</strong><br>
+                        <small>دانشگاه صنعتی شریف - شهریور ۱۴۰۱</small>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="teaching-icon">👨‍🏫</div>
+                    <div>
+                        <strong>دستیار درس مبانی برنامه‌نویسی</strong><br>
+                        <small>دانشگاه صنعتی شریف - اسفند ۱۴۰۰</small>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="teaching-icon">👨‍🏫</div>
+                    <div>
+                        <strong>دستیار درس ریاضیات گسسته</strong><br>
+                        <small>دانشگاه صنعتی شریف - اسفند ۱۴۰۰</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>علاقه‌مندی‌ها</h2>
+                <div class="interests">
+                    <div class="interest-item">🤖 هوش مصنوعی</div>
+                    <div class="interest-item">💰 بازارهای مالی</div>
+                    <div class="interest-item">💻 بلاکچین</div>
+                    <div class="interest-item">🔒 امنیت سایبری</div>
+                    <div class="interest-item">📊 داده‌کاوی</div>
+                    <div class="interest-item">🌐 سیستم‌های توزیع‌شده</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animate skill bars on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            skillBars.forEach(bar => {
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = bar.getAttribute('data-percent');
+                }, 500);
+            });
+        });
+    </script>
+</body>
+</html>
